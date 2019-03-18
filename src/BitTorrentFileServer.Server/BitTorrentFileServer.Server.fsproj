@@ -8,6 +8,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BitTorrentFileServer.Client\BitTorrentFileServer.Client.fsproj" />
+    <ProjectReference Include="..\BitTorrentFileServer.Shared\BitTorrentFileServer.Shared.fsproj" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

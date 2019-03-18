@@ -9,11 +9,8 @@
                 "build",
                 "${workspaceFolder}/src/BitTorrentFileServer.Server/BitTorrentFileServer.Server.fsproj"
             ],
-            "problemMatcher": "$msCompile",
-            "dependsOn": [
-                "buildTutorialMessages"
-            ]
-        },        
+            "problemMatcher": "$msCompile"
+        },
         {
             "label": "Build Client",
             "command": "dotnet",
@@ -22,10 +19,26 @@
                 "build",
                 "${workspaceFolder}/src/BitTorrentFileServer.Client/BitTorrentFileServer.Client.fsproj"
             ],
-            "problemMatcher": "$msCompile",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Shared",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/BitTorrentFileServer.Shared/BitTorrentFileServer.Shared.fsproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "buildAll",
             "dependsOn": [
-                "buildTutorialMessages"
-            ]
+                "Build Shared",
+                "Build Client",
+                "Build Server"
+            ],
+            "problemMatcher": []
         }
     ]
 }
