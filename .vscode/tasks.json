@@ -32,6 +32,26 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "Build Shared C#",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/BitTorrentFileServer.SharedCS/BitTorrentFileServer.SharedCS.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Interface test C#",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Test/InterfaceTest/InterfaceTest.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "buildAll",
             "dependsOn": [
                 "Build Shared",

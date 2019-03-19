@@ -8,7 +8,8 @@ open System.IO
 open System
 open BitTorrentFileServer.Data
 open BitTorrentFileServer.Functions
-open Bolero.Remoting.Client
+open BitTorrentFileServer.Service
+open Bolero.Remoting
 
 type Model =
     { value : int
@@ -44,7 +45,7 @@ let view model dispatch =
 type FileServerApp() =
     inherit ProgramComponent<Model, Message>()
     override this.Program =
-        let webService = this.Remote<WebSerivce>()
+        let webService = this.Remote<WebService>()
         Program.mkSimple (fun _ -> initModel) (update webService) view
 #if DEBUG
 

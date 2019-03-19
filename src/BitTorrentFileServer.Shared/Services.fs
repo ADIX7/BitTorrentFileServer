@@ -1,11 +1,11 @@
-namespace BitTorrentFileServer.Server
+namespace BitTorrentFileServer.Service
 
 open BitTorrentFileServer.Data
 open Bolero.Remoting
 
 type WebService =
     {
-        getFolders : Async<option<Folder>>
+        getFolders : unit -> Async<Folder>
     }
     
     interface IRemoteService with

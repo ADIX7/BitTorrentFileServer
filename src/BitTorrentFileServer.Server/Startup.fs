@@ -8,13 +8,24 @@ open Microsoft.AspNetCore.Http
 open Microsoft.Extensions.DependencyInjection
 open Bolero.Templating.Server
 open BitTorrentFileServer
+open Bolero.Remoting
+open System.IO
+open BitTorrentFileServer.Functions
+open BitTorrentFileServer.Service
 
 type Startup() =
+
+    let webSerivce = 
+        { 
+            getFolders = fun () -> async {
+                return getFolderByDirectory(DirectoryInfo("testData"))
+            }
+        }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
     member this.ConfigureServices(services: IServiceCollection) =
-        services
+        services.AddRemoting(webSerivce)
 #if DEBUG
             .AddHotReload(templateDir = "../BitTorrentFileServer.Client/wwwroot")
 #endif
