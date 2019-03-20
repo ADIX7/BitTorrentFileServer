@@ -8,7 +8,7 @@ open Microsoft.AspNetCore.Http
 open Microsoft.Extensions.DependencyInjection
 open Bolero.Templating.Server
 open BitTorrentFileServer
-open Bolero.Remoting
+open Bolero.Remoting.Server
 open System.IO
 open BitTorrentFileServer.Functions
 open BitTorrentFileServer.Service

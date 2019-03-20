@@ -4,12 +4,12 @@ open Microsoft.AspNetCore.Blazor.Builder
 open Microsoft.AspNetCore.Blazor.Hosting
 open Microsoft.Extensions.DependencyInjection
 open Main
-open Bolero.Remoting
+open Bolero.Remoting.Client
 
 type Startup() =
 
     member __.ConfigureServices(services: IServiceCollection) =
-        ClientRemotingExtensions.AddRemoting(services)
+        services.AddRemoting()
 
     member __.Configure(app: IBlazorApplicationBuilder) =
         app.AddComponent<FileServerApp>("#main")
