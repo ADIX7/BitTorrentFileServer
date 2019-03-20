@@ -13,13 +13,14 @@ open Bolero.Remoting
 
 type Model =
     { value : int
-      mutable rootFolder: DirectoryInfo }
+      mutable rootFolder: Folder }
 
-let initModel = { value = 0; rootFolder = DirectoryInfo(".") }
+let initModel = { value = 0; rootFolder = {name = ""; folders = []}}
 
 type Message =
-    | Increment
-    | Decrement
+    | RequestUpdate
+    | UpdateFolder of Folder
+    | Error of exn
 
 type FolderTemplate = Template<"wwwroot/folder.html">
 
@@ -31,22 +32,26 @@ let rec getFoldersView isRoot (folder : Folder) : Node =
 
 let update webService message model =
     match message with
-    | Increment -> { model with value = model.value + 1 }
-    | Decrement -> { model with value = model.value - 1 }
+    | RequestUpdate -> 
+           model, 
+           Cmd.ofAsync 
+                webService.getFolders ()
+                (fun folder -> (UpdateFolder folder))
+                Error
+    | UpdateFolder folder -> { model with rootFolder = folder }, []
+    | Error exn -> model, []
 
 type Button = Template<"wwwroot/button.html">
 
 let view model dispatch =
-    concat [ Button().Text("-").Click(fun _ -> dispatch Decrement).Elt()
-             span [] [ textf " %i " model.value ]
-             Button().Text("+").Click(fun _ -> dispatch Increment).Elt()
-             getFoldersView true (getFolderByDirectory model.rootFolder) ]
+    concat [ Button().Text("Update").Click(fun _ -> dispatch RequestUpdate).Elt()
+             getFoldersView true model.rootFolder ]
 
 type FileServerApp() =
     inherit ProgramComponent<Model, Message>()
     override this.Program =
         let webService = this.Remote<WebService>()
-        Program.mkSimple (fun _ -> initModel) (update webService) view
+        Program.mkProgram (fun _ -> initModel, []) (update webService) view
 #if DEBUG
 
         |> Program.withHotReloading

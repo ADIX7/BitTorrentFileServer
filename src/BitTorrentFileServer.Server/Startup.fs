@@ -33,7 +33,7 @@ type Startup() =
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     member this.Configure(app: IApplicationBuilder, env: IHostingEnvironment) =
-        app
+        app.UseRemoting()
 #if DEBUG
             .UseHotReload()
 #endif
