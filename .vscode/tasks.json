@@ -22,32 +22,22 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "Build Blazor",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/BitTorrentFileServer.Blazor/BitTorrentFileServer.Blazor.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "Build Shared",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
                 "${workspaceFolder}/src/BitTorrentFileServer.Shared/BitTorrentFileServer.Shared.fsproj"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Shared C#",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/src/BitTorrentFileServer.SharedCS/BitTorrentFileServer.SharedCS.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Interface test C#",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Test/InterfaceTest/InterfaceTest.csproj"
             ],
             "problemMatcher": "$msCompile"
         },

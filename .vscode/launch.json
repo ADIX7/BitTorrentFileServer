@@ -36,6 +36,37 @@
             }
         },
         {
+            "name": "BitTorrentFileServer.Blazor",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build Blazor",
+            "program": "${workspaceFolder}/src/BitTorrentFileServer.Blazor/bin/Debug/netstandard2.0/BitTorrentFileServer.Blazor.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/BitTorrentFileServer.Blazor/",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "launchBrowser": {
+                "enabled": true,
+                "args": "${auto-detect-url}",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start ${auto-detect-url}"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "linux": {
+                    "command": "xdg-open"
+                }
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach",

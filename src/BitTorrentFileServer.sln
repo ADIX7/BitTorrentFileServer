@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28809.33
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitTorrentFileServer.Blazor", "BitTorrentFileServer.Blazor\BitTorrentFileServer.Blazor.csproj", "{EFA0F66B-2661-443F-9AA8-2CF5F78A886F}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "BitTorrentFileServer.Client", "BitTorrentFileServer.Client\BitTorrentFileServer.Client.fsproj", "{F94F35B8-2130-46CF-A0C3-2129819E7120}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "BitTorrentFileServer.Server", "BitTorrentFileServer.Server\BitTorrentFileServer.Server.fsproj", "{8FDBBFDB-9A1D-4BFD-88AB-CCA5355A9C90}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "BitTorrentFileServer.Shared", "BitTorrentFileServer.Shared\BitTorrentFileServer.Shared.fsproj", "{61ACCCB5-7B21-421D-B12D-B7E5AF4AED98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFA0F66B-2661-443F-9AA8-2CF5F78A886F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA0F66B-2661-443F-9AA8-2CF5F78A886F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA0F66B-2661-443F-9AA8-2CF5F78A886F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA0F66B-2661-443F-9AA8-2CF5F78A886F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94F35B8-2130-46CF-A0C3-2129819E7120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94F35B8-2130-46CF-A0C3-2129819E7120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94F35B8-2130-46CF-A0C3-2129819E7120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94F35B8-2130-46CF-A0C3-2129819E7120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDBBFDB-9A1D-4BFD-88AB-CCA5355A9C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDBBFDB-9A1D-4BFD-88AB-CCA5355A9C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDBBFDB-9A1D-4BFD-88AB-CCA5355A9C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDBBFDB-9A1D-4BFD-88AB-CCA5355A9C90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61ACCCB5-7B21-421D-B12D-B7E5AF4AED98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61ACCCB5-7B21-421D-B12D-B7E5AF4AED98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61ACCCB5-7B21-421D-B12D-B7E5AF4AED98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61ACCCB5-7B21-421D-B12D-B7E5AF4AED98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DB7DB24-2141-45AE-8540-9F373CE3CA51}
+	EndGlobalSection
+EndGlobal
