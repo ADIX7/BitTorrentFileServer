@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/BitTorrentFileServer.Server/BitTorrentFileServer.Server.fsproj"
+                "${workspaceFolder}/src/FSharp/BitTorrentFileServer.Server/BitTorrentFileServer.Server.fsproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -17,34 +17,44 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/BitTorrentFileServer.Client/BitTorrentFileServer.Client.fsproj"
+                "${workspaceFolder}/src/FSharp/BitTorrentFileServer.Client/BitTorrentFileServer.Client.fsproj"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Build Blazor",
+            "label": "Build F Shared",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/BitTorrentFileServer.Blazor/BitTorrentFileServer.Blazor.csproj"
+                "${workspaceFolder}/src/Shared/BitTorrentFileServer.FSShared/BitTorrentFileServer.FSShared.fsproj"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Build Shared",
+            "label": "Build Angular",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/BitTorrentFileServer.Shared/BitTorrentFileServer.Shared.fsproj"
+                "${workspaceFolder}/src/Web/BitTorrentFileServer.Angular/BitTorrentFileServer.Angular.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Vue",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Web/BitTorrentFileServer.Vue/BitTorrentFileServer.Vue.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
         {
             "label": "buildAll",
             "dependsOn": [
-                "Build Shared",
+                "Build F Shared",
                 "Build Client",
                 "Build Server"
             ],

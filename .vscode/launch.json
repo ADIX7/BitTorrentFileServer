@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "Build Server",
-            "program": "${workspaceFolder}/src/BitTorrentFileServer.Server/bin/Debug/netcoreapp2.1/BitTorrentFileServer.Server.dll",
+            "program": "${workspaceFolder}/src/FSharp/BitTorrentFileServer.Server/bin/Debug/netcoreapp2.1/BitTorrentFileServer.Server.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/BitTorrentFileServer.Server/",
+            "cwd": "${workspaceFolder}/src/Fsharp/BitTorrentFileServer.Server/",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
@@ -36,13 +36,44 @@
             }
         },
         {
-            "name": "BitTorrentFileServer.Blazor",
+            "name": "BitTorrentFileServer Angular",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "Build Blazor",
-            "program": "${workspaceFolder}/src/BitTorrentFileServer.Blazor/bin/Debug/netstandard2.0/BitTorrentFileServer.Blazor.dll",
+            "preLaunchTask": "Build Angular",
+            "program": "${workspaceFolder}/src/Web/BitTorrentFileServer.Angular/bin/Debug/netcoreapp3.0/BitTorrentFileServer.Angular.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/BitTorrentFileServer.Blazor/",
+            "cwd": "${workspaceFolder}/src/Web/BitTorrentFileServer.Angular/",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "launchBrowser": {
+                "enabled": true,
+                "args": "${auto-detect-url}",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start ${auto-detect-url}"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "linux": {
+                    "command": "xdg-open"
+                }
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "BitTorrentFileServer Vue",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build Vue",
+            "program": "${workspaceFolder}/src/Web/BitTorrentFileServer.Vue/bin/Debug/netcoreapp3.0/BitTorrentFileServer.Vue.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Web/BitTorrentFileServer.Vue/",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
