@@ -1,0 +1,25 @@
+{
+  "name": "bittorrentfileserver.vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "gulp": "^4.0.0",
+    "merge-stream": "^1.0.1",
+    "node-sass": "^4.11.0",
+    "vinyl-source-stream": "^2.0.0",
+    "vueify": "^9.4.1"
+  }
+}

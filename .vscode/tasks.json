@@ -52,12 +52,28 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "Vue Gulp",
+            "command": "npm",
+            "type": "process",
+            "args": [
+                "run",
+                "build"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "buildAll",
             "dependsOn": [
                 "Build F Shared",
                 "Build Client",
                 "Build Server"
             ],
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "build",
+            "path": "src/Web/BitTorrentFileServer.Vue/",
             "problemMatcher": []
         }
     ]

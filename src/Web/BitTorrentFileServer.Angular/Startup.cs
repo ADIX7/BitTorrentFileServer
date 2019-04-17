@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace BitTorrentFileServer.Angular
 {
@@ -33,12 +32,11 @@ namespace BitTorrentFileServer.Angular
             });
 
 
-            services.AddMvc()
-                .AddNewtonsoftJson();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -53,15 +51,9 @@ namespace BitTorrentFileServer.Angular
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseRouting(routes =>
-            {
-                routes.MapRazorPages();
-            });
-
             app.UseCookiePolicy();
 
-            app.UseAuthorization();
+            app.UseMvc();
         }
     }
 }
