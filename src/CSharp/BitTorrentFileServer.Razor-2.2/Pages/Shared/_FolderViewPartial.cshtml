@@ -1,0 +1,13 @@
+@model BitTorrentFileServer.Data.Folder
+<li>
+    @Model.name
+    @if (Model.folders.Any())
+    {
+        <ul>
+            @foreach (var folder in Model.folders)
+            {
+                <partial name="_FolderViewPartial" model="folder"/>
+            }
+        </ul>
+    }
+</li>

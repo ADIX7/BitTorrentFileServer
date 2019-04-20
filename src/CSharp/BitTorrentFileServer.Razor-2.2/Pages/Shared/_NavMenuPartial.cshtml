@@ -1,0 +1,16 @@
+@{
+    bool IsActive(string s)
+    {
+        return s.ToLower() == Context.Request.Path.ToString().ToLower();
+    }
+}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" asp-area="" asp-page="/Index">WebApp</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link @(IsActive("/") ? "active" : "")" asp-area="" asp-page="/Index">Browse</a></li>
+            <li class="nav-item"><a class="nav-link @(IsActive("/Torrents") ? "active" : "")" asp-area="" asp-page="/Torrents">Torrents</a></li>
+        </ul>
+    </div>
+</nav>

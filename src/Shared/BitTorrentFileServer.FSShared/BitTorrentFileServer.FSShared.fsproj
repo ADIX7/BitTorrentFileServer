@@ -6,5 +6,8 @@
   <ItemGroup>
     <Compile Include="*.fs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitTorrentFileServer.Common.FSharp\BitTorrentFileServer.Common.FSharp.fsproj" />
+  </ItemGroup>
   <Import Project="..\..\..\.paket\Paket.Restore.targets" />
 </Project>

@@ -32,6 +32,26 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "Build Common F",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Shared/BitTorrentFileServer.Common.FSharp/BitTorrentFileServer.Common.FSharp.fsproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Common C",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Shared/BitTorrentFileServer.Common.CSharp/BitTorrentFileServer.Common.CSharp.fsproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "Build Angular",
             "command": "dotnet",
             "type": "process",
