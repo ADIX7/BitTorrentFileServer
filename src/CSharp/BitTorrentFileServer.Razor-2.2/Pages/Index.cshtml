@@ -4,7 +4,21 @@
 @{
     ViewData["Title"] = "Home page";
 
-    var Folder = BitTorrentFileServer.Functions.getFolderByDirectoryWithName("/", new DirectoryInfo("wwwroot/testData"));
-}
+    int folderIndex = 0;
 
-<partial name="_FolderViewPartial" model="Folder" />
+    Model.FolderNames = Functions.getFoldersByDirectory(new DirectoryInfo("wwwroot/testData/" + Model.CurrentPath)).ToList();
+}
+<form method="post">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            @foreach (var pathPart in Model.PathParts)
+            {
+                <li class="breadcrumb-item"><a asp-page-handler="open">@pathPart</a></li>
+            }
+        </ol>
+    </nav>
+</form>
+@foreach (var folderName in Model.FolderNames)
+{
+    <partial name="_FolderViewPartial" model="folderName" />
+}
