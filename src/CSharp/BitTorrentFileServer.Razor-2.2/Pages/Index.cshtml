@@ -4,21 +4,21 @@
 @{
     ViewData["Title"] = "Home page";
 
-    int folderIndex = 0;
-
     Model.FolderNames = Functions.getFoldersByDirectory(new DirectoryInfo("wwwroot/testData/" + Model.CurrentPath)).ToList();
+    string p = "";
 }
-<form method="post">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            @foreach (var pathPart in Model.PathParts)
-            {
-                <li class="breadcrumb-item"><a asp-page-handler="open">@pathPart</a></li>
-            }
-        </ol>
-    </nav>
-</form>
-@foreach (var folderName in Model.FolderNames)
-{
-    <partial name="_FolderViewPartial" model="folderName" />
-}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        @foreach (var pathPart in Model.PathParts)
+        {
+            p += pathPart + "/";
+            <li class="breadcrumb-item"><a asp-route-path="@Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(p))">@pathPart</a></li>
+        }
+    </ol>
+</nav>
+<ul>
+    @foreach (var folderName in Model.FolderNames)
+    {
+        <li><a asp-route-path="@Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(Model.CurrentPath + "/" + folderName))">@folderName</a></li>
+    }
+</ul>

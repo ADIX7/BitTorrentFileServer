@@ -21,24 +21,16 @@ namespace BitTorrentFileServer.Razor_2._2.Pages
 
         public List<string> FolderNames { get; set; } = new List<string>();
 
-        public void OnGet()
+        public void OnGet(string path)
         {
-        }
+            try
+            {
+                var parsedPath = System.Text.UTF8Encoding.UTF8.GetString(Convert.FromBase64String(path));
+                CurrentPath = parsedPath ?? CurrentPath;
+            }
+            catch { }
 
-        public void NavigatoToFolderIndex(int index)
-        {
-            CurrentPath = Path.Combine(PathParts.ToList().GetRange(0, index).ToArray());
-        }
-
-        public void OnGetOpen(int index)
-        {
-            ;
-            NavigatoToFolderIndex(index);
-        }
-
-        public void OnPostOpen(int index)
-        {
-            ;
+            CurrentPath = CurrentPath.TrimEnd('/');
         }
     }
 }
