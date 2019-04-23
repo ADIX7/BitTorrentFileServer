@@ -1,0 +1,25 @@
+<div id="browseContainer">
+  <nav id="browseNavbar" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li v-for="(p, i) in pathParts" :key="p.name" class="breadcrumb-item">
+        <a v-on:click="navigateByPathIndex(i)" href="#">{{p.name}}</a>
+      </li>
+    </ol>
+  </nav>
+  <div id="selectTools">
+    <a href="#" v-on:click="selectAll()">Select All</a>
+    |
+    <a href="#" v-on:click="unSelectAll()">Unselect All</a>
+  </div>
+  <ul id="browseElements">
+    <li v-for="element in content.content" :key="element.name">
+      <input type="checkbox" v-model="checkedElements" v-bind:value="element.name">
+      <a v-if="element.isFolder" v-on:click="navigate(content.path + '/' + element.name)" href="#">{{element.name}}</a>
+      <span v-if="!element.isFolder">{{element.name}}</span>
+    </li>
+  </ul>
+  <div id="browseButtons">
+    <button type="button" class="btn btn-success" :disabled="isDownloadDisabled">Download</button>
+    <button type="button" class="btn btn-danger">Cancel</button>
+  </div>
+</div>

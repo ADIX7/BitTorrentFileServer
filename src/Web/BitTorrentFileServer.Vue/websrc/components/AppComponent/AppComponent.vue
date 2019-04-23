@@ -1,6 +1,6 @@
 <script>
+import BrowseComponent from "../BrowseComponent/BrowseComponent.vue";
 import NavbarComponent from "../NavbarComponent.vue";
-import BrowseComponent from "../BrowseComponent.vue";
 
 export default {
   components: {

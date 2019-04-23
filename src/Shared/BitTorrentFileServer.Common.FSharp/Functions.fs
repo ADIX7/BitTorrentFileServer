@@ -16,10 +16,13 @@ module Functions =
 
     let getFolderByDirectory = getFolderByDirectoryWithName null
 
-    let getContentByDirectory (dir : DirectoryInfo) : string list =
+    let getContentByDirectory (dir : DirectoryInfo) : Element list =
         List.append (dir.GetDirectories()
                      |> Array.toList
-                     |> List.map (fun d -> d.Name))
-            (dir.GetFiles()
-             |> Array.toList
-             |> List.map (fun f -> f.Name))
+                     |> List.map (fun d ->
+                            { name = d.Name
+                              isFolder = true })) (dir.GetFiles()
+                                                   |> Array.toList
+                                                   |> List.map (fun f ->
+                                                          { name = f.Name
+                                                            isFolder = false }))

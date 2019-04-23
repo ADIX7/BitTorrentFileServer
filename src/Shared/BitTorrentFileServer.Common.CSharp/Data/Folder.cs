@@ -1,3 +1,4 @@
+using BitTorrentFileServer.Data;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
@@ -7,8 +8,8 @@ namespace BitTorrentFileServer.Common.CSharp.Data
     {
         [JsonProperty("path")]
         public string Path { get; set; }
-        
+
         [JsonProperty("content")]
-        public List<string> Content { get; set; }
+        public List<Element> Content { get; set; }
     }
 }

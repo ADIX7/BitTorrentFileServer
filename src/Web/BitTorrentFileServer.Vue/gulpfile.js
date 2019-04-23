@@ -1,27 +1,25 @@
 const { src, dest, parallel, series } = require('gulp');
-const browserify = require('browserify');
-const source = require('vinyl-source-stream');
-const babelify = require('babelify');
 const merge = require('merge-stream');
-const vueify = require('vueify');
+const rename = require("gulp-rename");
+
+var sass = require('gulp-sass');
+
+sass.compiler = require('node-sass');
 
 
 function build(done) {
-    var jsTask = browserify({
-        entries: ['websrc/index.js']
-    })
-        .transform(vueify)
-        .transform(babelify.configure({
-            presets: ["@babel/preset-env"]
-        }))
-        .bundle()
-        .pipe(source('bundle.js'))
-        .pipe(dest('wwwroot/js'));
+    var mainCSSTask = src("websrc/css/default.scss")
+        .pipe(sass().on('error', sass.logError))
+        .pipe(rename(function (path) {
+            path.basename = "main";
+          }))
+        .pipe(dest('wwwroot/css/'));
 
-    var htmlTask = src("websrc/*.html")
-        .pipe(dest("wwwroot"));
+    var mobileCSSTask = src("websrc/css/mobile.scss")
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest('wwwroot/css/'));
 
-    return merge(jsTask, htmlTask);
+    return merge(mainCSSTask, mobileCSSTask);
 }
 
 exports.default = build;
