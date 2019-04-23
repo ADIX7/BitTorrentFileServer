@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Home page";
 
-    Model.FolderNames = Functions.getFoldersByDirectory(new DirectoryInfo("wwwroot/testData/" + Model.CurrentPath)).ToList();
+    Model.FolderNames = Functions.getContentByDirectory(new DirectoryInfo("wwwroot/testData/" + Model.CurrentPath)).ToList();
     string p = "";
 }
 <nav aria-label="breadcrumb">
