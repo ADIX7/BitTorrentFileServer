@@ -1,17 +1,6 @@
-<template>
-  <div>
-    <NavbarComponent></NavbarComponent>
-    <BrowseComponent
-      v-bind:pathParts="pathParts"
-      v-bind:content="browseContent"
-      v-on:navigate-to="updateFolder"
-    ></BrowseComponent>
-  </div>
-</template>
-
 <script>
-import NavbarComponent from "./NavbarComponent.vue";
-import BrowseComponent from "./BrowseComponent.vue";
+import NavbarComponent from "../NavbarComponent.vue";
+import BrowseComponent from "../BrowseComponent.vue";
 
 export default {
   components: {
@@ -52,7 +41,10 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<template src="./AppComponent.html">  
+</template>
+
+<style lang="scss">
 
 </style>
 

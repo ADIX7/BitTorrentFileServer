@@ -47,8 +47,8 @@ namespace BitTorrentFileServer.Vue
                 app.UseHsts();
             }
 
+            app.UseFileServer();
             app.UseMvc();
-            app.UseStaticFiles();
             app.UseCookiePolicy();
         }
     }
