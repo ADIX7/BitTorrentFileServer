@@ -2,6 +2,7 @@
 import BrowseComponent from "../BrowseComponent/BrowseComponent.vue";
 import NavbarComponent from "../NavbarComponent.vue";
 import TorrentComponent from "../TorrentComponent/TorrentComponent.vue";
+import "bootstrap";
 
 export default {
   components: {

@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Torrent File Server</a>
     <button
-      class="navbar-toggler navbar-dark"
+      class="navbar-toggler navbar-dark collapsed"
       type="button"
       data-toggle="collapse"
       data-target="#mainNavBar"

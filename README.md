@@ -1,7 +1,7 @@
 # BitTorrentFileServer
 ---
 
-### Goal
+## Goal
 
 This is a learning project focused on Web technologies and F# development. F# is used where functional programming can be beneficial.
 The application gives and alternative file transfer service for unreliable networks where connection can be slow or not at all for short periods of time. To solve the problem the application uses BitTorrent protocol. It can be used beside SMB/FTP especially with mobile clients.
