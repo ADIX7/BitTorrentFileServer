@@ -1,0 +1,58 @@
+#browseContainer {
+    display: grid;
+    height: calc(100% - 56px);  //56 is the height of the navbar on the NavbarComponent
+    grid-template-rows: 50px 30px auto 50px;
+    grid-template-columns: 220px auto;
+    grid-template-areas: 
+        "navbar navbar" 
+        "selectTools selectTools" 
+        "main main" 
+        "save save";
+
+
+    #browseNavbar {
+        grid-area: navbar;
+    }
+
+    #selectTools {
+        grid-area: selectTools;
+        align-self: center;
+        a {
+            margin: 0px 10px;
+        }
+    }
+    #browseElements {
+        grid-area: main;
+        list-style-type: none;
+        padding-left: 15px;
+        font-size: 20px;
+    
+        input[type=checkbox] {
+            transform: scale(1.5);
+            margin-right: 10px;
+        }
+    }
+
+    #browseButtons {
+        grid-area: save;
+        width: 220px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+        button {
+            margin: 5px;
+            width: 100px;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #browseContainer {
+        grid-template-rows: 50px 50px auto;
+        grid-template-areas: 
+        "navbar navbar" 
+        "save selectTools" 
+        "main main";
+    }
+}

@@ -10,7 +10,7 @@ namespace BitTorrentFileServer.Razor_2._2.Pages
 {
     public class IndexModel : PageModel
     {
-        public string CurrentPath { get; set; } = "./1/a";
+        public string CurrentPath { get; set; } = ".";
         public IEnumerable<string> PathParts
         {
             get
@@ -19,7 +19,10 @@ namespace BitTorrentFileServer.Razor_2._2.Pages
             }
         }
 
-        public List<string> FolderNames { get; set; } = new List<string>();
+        [BindProperty]
+        public List<string> CheckedElements { get; set; } = new List<string>();
+
+        public List<Data.Element> FolderElements { get; set; } = new List<Data.Element>();
 
         public void OnGet(string path)
         {

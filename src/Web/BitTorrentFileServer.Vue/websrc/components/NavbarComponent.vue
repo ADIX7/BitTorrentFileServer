@@ -29,5 +29,5 @@
 <script>
 export default {
   props: ["currentView"]
-}
+};
 </script>

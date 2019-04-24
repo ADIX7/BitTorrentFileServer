@@ -1,0 +1,35 @@
+#browseContainer {
+  display: grid;
+  height: calc(100% - 56px);
+  grid-template-rows: 50px 30px auto 50px;
+  grid-template-columns: 220px auto;
+  grid-template-areas: "navbar navbar"  "selectTools selectTools"  "main main"  "save save"; }
+  #browseContainer #browseNavbar {
+    grid-area: navbar; }
+  #browseContainer #selectTools {
+    grid-area: selectTools;
+    align-self: center; }
+    #browseContainer #selectTools a {
+      margin: 0px 10px; }
+  #browseContainer #browseElements {
+    grid-area: main;
+    list-style-type: none;
+    padding-left: 15px;
+    font-size: 20px; }
+    #browseContainer #browseElements input[type=checkbox] {
+      transform: scale(1.5);
+      margin-right: 10px; }
+  #browseContainer #browseButtons {
+    grid-area: save;
+    width: 220px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+    #browseContainer #browseButtons button {
+      margin: 5px;
+      width: 100px; }
+
+@media only screen and (min-width: 600px) {
+  #browseContainer {
+    grid-template-rows: 50px 50px auto;
+    grid-template-areas: "navbar navbar"  "save selectTools"  "main main"; } }

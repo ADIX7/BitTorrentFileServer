@@ -4,21 +4,65 @@
 @{
     ViewData["Title"] = "Home page";
 
-    Model.FolderNames = Functions.getContentByDirectory(new DirectoryInfo("wwwroot/testData/" + Model.CurrentPath)).ToList();
+    Model.FolderElements = Functions.getContentByDirectory(new DirectoryInfo("wwwroot/testData/" + Model.CurrentPath)).ToList();
     string p = "";
 }
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        @foreach (var pathPart in Model.PathParts)
-        {
-            p += pathPart + "/";
-            <li class="breadcrumb-item"><a asp-route-path="@Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(p))">@pathPart</a></li>
+@section head {
+    <link href="~/css/browseView.css" rel="stylesheet" />
+    <script>
+        function checkboxChanged() {
+            let checkValues = $('input[name=CheckedElements]:checked');
+            $('#downloadButton').prop("disabled", checkValues.length == 0);
         }
-    </ol>
-</nav>
-<ul>
-    @foreach (var folderName in Model.FolderNames)
-    {
-        <li><a asp-route-path="@Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(Model.CurrentPath + "/" + folderName))">@folderName</a></li>
-    }
-</ul>
+
+        function selectAll() {
+            $('input[name=CheckedElements]').each(function () {
+                $(this).prop("checked", true);
+            });
+            checkboxChanged();
+        }
+
+        function unSelectAll() {
+            $('input[name=CheckedElements]').each(function () {
+                $(this).prop("checked", false);
+            });
+            checkboxChanged();
+        }
+    </script>
+}
+<div id="browseContainer">
+    <nav id="browseNavbar" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            @foreach (var pathPart in Model.PathParts)
+            {
+                p += pathPart + "/";
+                <li class="breadcrumb-item"><a asp-route-path="@Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(p))">@pathPart</a></li>
+            }
+        </ol>
+    </nav>
+    <div id="selectTools">
+        <a href="#" onclick="selectAll()">Select All</a>
+        |
+        <a href="#" onclick="unSelectAll()">Unselect All</a>
+    </div>
+    <ul id="browseElements">
+        @foreach (var element in Model.FolderElements)
+        {
+            <li>
+                <input type="checkbox" name="CheckedElements" value="@element.name" onchange="checkboxChanged()">
+                @if (element.isFolder)
+                {
+                    <a asp-route-path="@Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(Model.CurrentPath + "/" + element.name))">@element.name</a>
+                }
+                else
+                {
+                    <span>@element.name</span>
+                }
+            </li>
+        }
+    </ul>
+    <div id="browseButtons">
+        <button type="button" class="btn btn-success" id="downloadButton" disabled="disabled">Download</button>
+        <button type="button" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
