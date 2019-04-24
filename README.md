@@ -33,14 +33,14 @@ All the projects uses Bootstrap for UI and primarily CSS Grid for layout.
         * Webpack for Vue SFC, bundling, static html copy
         * Gulp for several SCSS
 
-The Web projects use ASP NET Core Web API as backend.
-Most of the projects use a common F# project (BitTorrentFileServer.Common.FSharp) for basic data structures and logic. There is also a common C# project (BitTorrentFileServer.Common.CSharp) for specific data and logic but it is mostly empty.
-The Bolero app uses a shared F# library (BitTorrentFileServer.FSShared) for the client and server side.
+The Web projects use ASP NET Core Web API as backend.  
+Most of the projects use a common F# project (BitTorrentFileServer.Common.FSharp) for basic data structures and logic. There is also a common C# project (BitTorrentFileServer.Common.CSharp) for specific data and logic but it is mostly empty.  
+The Bolero app uses a shared F# library (BitTorrentFileServer.FSShared) for the client and server side.  
 
 ---
 ### Current status
-Blazor: -
-Razor Pages: UI, browse
-Bolero: initial steps
-Angular: -
-Vue: UI, browse
+Blazor: -  
+Razor Pages: UI, browse  
+Bolero: initial steps  
+Angular: -  
+Vue: UI, browse  
