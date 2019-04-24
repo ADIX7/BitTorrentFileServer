@@ -1,8 +1,5 @@
 <div>
-    <NavbarComponent></NavbarComponent>
-    <BrowseComponent
-      v-bind:pathParts="pathParts"
-      v-bind:content="browseContent"
-      v-on:navigate-to="updateFolder"
-    ></BrowseComponent>
-  </div>
+  <NavbarComponent v-bind:currentView="currentView" v-on:open-view="currentView = $event"></NavbarComponent>
+  <TorrentComponent v-if="currentView === 'torrents'"></TorrentComponent>
+  <BrowseComponent v-else v-bind:pathParts="pathParts" v-bind:content="browseContent" v-on:navigate-to="updateFolder"></BrowseComponent>
+</div>

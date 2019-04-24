@@ -15,13 +15,19 @@
 
     <div class="collapse navbar-collapse" id="mainNavBar">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Browse</a>
+        <li v-bind:class="[{active: currentView === 'browse'}, 'nav-item']">
+          <a class="nav-link" href="#" v-on:click="$emit('open-view', 'browse')">Browse</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Torrents</a>
+        <li v-bind:class="[{active: currentView === 'torrents'}, 'nav-item']">
+          <a class="nav-link" href="#" v-on:click="$emit('open-view', 'torrents')">Torrents</a>
         </li>
       </ul>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  props: ["currentView"]
+}
+</script>

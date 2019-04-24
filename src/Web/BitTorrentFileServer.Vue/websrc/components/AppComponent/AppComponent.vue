@@ -1,11 +1,13 @@
 <script>
 import BrowseComponent from "../BrowseComponent/BrowseComponent.vue";
 import NavbarComponent from "../NavbarComponent.vue";
+import TorrentComponent from "../TorrentComponent/TorrentComponent.vue";
 
 export default {
   components: {
+    BrowseComponent,
     NavbarComponent,
-    BrowseComponent
+    TorrentComponent
   },
   data() {
     return {
@@ -13,7 +15,8 @@ export default {
       browseContent: {
         path: ".",
         content: []
-      }
+      },
+      currentView: "browse"
     };
   },
   methods: {
