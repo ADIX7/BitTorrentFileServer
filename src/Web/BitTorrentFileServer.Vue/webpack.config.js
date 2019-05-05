@@ -3,12 +3,18 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './websrc/index.js',
+  entry: {
+    main: './websrc/index.js'
+  },
   output: {
     filename: 'wwwroot/js/bundle.js',
-    path: __dirname
+    path: __dirname,
+    publicPath: "/js/"
   },
   mode: 'development',
+  devServer: {
+    hot: true
+  },
   module: {
     rules: [
       { test: /\.js$/, use: { loader: 'babel-loader', options: { presets: ['@babel/preset-env'] } } },
