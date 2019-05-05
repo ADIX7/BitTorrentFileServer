@@ -12,9 +12,6 @@ module.exports = {
     publicPath: "/js/"
   },
   mode: 'development',
-  devServer: {
-    hot: true
-  },
   module: {
     rules: [
       { test: /\.js$/, use: { loader: 'babel-loader', options: { presets: ['@babel/preset-env'] } } },
